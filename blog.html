@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jauhar Skincare - Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .slide-right1 {
+        animation: slide-right1 1s cubic-bezier(0.445, 0.050, 0.550, 0.950) forwards;
+        }
+
+        .slide-left1 {
+        animation: slide-left1 1s cubic-bezier(0.445, 0.050, 0.550, 0.950) forwards;
+        }
+        .fade-in {
+            -webkit-animation: fade-in 1.2s cubic-bezier(0.550, 0.055, 0.675, 0.190) forwards;
+                    animation: fade-in 1.2s cubic-bezier(0.550, 0.055, 0.675, 0.190) forwards;
+        }
+        .fade-out {
+            -webkit-animation: fade-out 1.2s cubic-bezier(0.550, 0.055, 0.675, 0.190) forwards;
+                    animation: fade-out 1.2s cubic-bezier(0.550, 0.055, 0.675, 0.190) forwards;
+        }
+        .scale-in-ver-center {
+            -webkit-animation: scale-in-ver-center 0.9s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.5s forwards;
+                    animation: scale-in-ver-center 0.9s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.5s forwards;
+        }
+        @-webkit-keyframes scale-in-ver-center {
+        0% {
+            -webkit-transform: scaleY(0);
+                    transform: scaleY(0);
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+                    transform: scaleY(1);
+            opacity: 1;
+        }
+        }
+        @keyframes scale-in-ver-center {
+        0% {
+            -webkit-transform: scaleY(0);
+                    transform: scaleY(0);
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+                    transform: scaleY(1);
+            opacity: 1;
+        }
+        }
+        @-webkit-keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+        @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+        @-webkit-keyframes fade-out {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+        }
+        @keyframes fade-out {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+        }
+
+        @keyframes slide-right1 {
+        0% {
+            transform: translateX(-150%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+        }
+        
+        /* Keyframes untuk slide-left (reverse dari slide-right) */
+        @keyframes slide-left1 {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-150%);
+            }
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom,
+            #1B1B1D 0%,   
+            #D7D1C6 75%);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #3a3a3a;
+            padding: 10px 30px 10px 30px;
+            border-radius: 60px;
+            border: 1px solid #f1c40f;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: calc(100% - 40px);
+            margin: 40px auto 20px auto;
+            max-width: 1100px;
+        }
+        .navbar img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            padding-left: 20px;
+        }
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        @font-face {
+            font-family: 'Blauer Nue';
+            src: url('fonts/BlauerNue-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand h1 {
+            font-family: "Blauer Nue";
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: "Blauer Nue";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 9.6px;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand p {
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: 'Inter';
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-right: 20px;
+        }
+        .navbar .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+        }
+        .navbar .search-bar i {
+            color: #3a3a3a;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .navbar .nav-links i {
+            color: #fff;
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu i {
+            color: #000;
+        }
+        .side-menu .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open {
+            right: 0;
+        }
+
+        .side-menu2 {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu2 a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu2 a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu2 a img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        .tokped{
+        margin-left: 105px;
+        }
+        .sopi{
+        margin-left: 124px;
+        }
+        .side-menu2 i {
+            color: #000;
+        }
+        .side-menu2 .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu2 .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu2 .brand-name2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open2 {
+            right: 0;
+        }
+
+        /* Content section */
+        .content {
+            display: flex;
+            max-width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px 20px 20px;
+            flex-grow: 1;
+            z-index: 1;
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+        
+        .content .text {
+            max-width: 50%;
+            margin-left: 50px;
+        }
+        .content .text h1 {
+            font-family: "Blauer Nue";
+            height: 30px;
+            font-size: 70px;
+            font-style: normal;
+            letter-spacing: 10px;
+            color: #FFFFFF;
+        }
+        .content .text p {
+            font-family: "Blauer Nue";
+            letter-spacing: 5px;
+            font-size: 25px;
+            color: #FFFFFF;
+            margin: 80px 0 0px 0;
+        }
+        .content .image {
+            margin-top: 90px;
+            margin-right: 40px;
+            width: 475px;
+            height: 373px;
+            background: url('Book Lovers.png');
+            background-size: cover;
+            background-position: center;
+            align-self: stretch;
+        }
+
+        /* h1 Blog */
+        .recently-added{
+            color: #FFFFFF;
+            font-family: "Inter";
+            font-size: 30px;
+            font-style: normal;
+            letter-spacing: 0.96px;
+            margin-left: 70px;
+            margin-top: 0;
+            }
+
+        .main-contentt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 0px;
+        }
+        .blog-highlight {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 90%; /* Increase the width */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .blog-highlight img {
+            width: 200px; /* Increase the width */
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover; /* Ensure the image covers the entire height and width */
+            margin: 0; /* Remove margin */
+        }
+        .blog-highlight .contentt {
+            flex: 1;
+            margin: 0 20px;
+        }
+        .blog-highlight .contentt h1 {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+        .blog-highlight .contentt p {
+            font-size: 14px;
+            color: #555;
+        }
+        .blog-highlight .contentt .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #d3c7b7;
+            color: #555;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Search bar dan card */
+        .search-barr {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .search-label {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 300px;
+            border-radius: 50px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 30%, rgba(153, 153, 153, 0.60) 100%);
+            box-shadow: 0px 7px 20px -1px rgba(119, 117, 117, 0.25);
+        }
+
+        .search-label i {
+            position: absolute;
+            left: 15px;
+            color: #888;
+        }
+
+        .search-label input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px; /* Space for the icon */
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            background-color: #f0f0f0;
+        }
+        .card-wrap {
+            display: flex;
+            padding: 10px 50px 40px 50px;
+            align-items: center;
+            align-content: center;
+            gap: 10px;
+            align-self: stretch;
+            flex-wrap: wrap;
+        }
+        .blog-card {
+            display: flex;
+            width: 345px;
+            height: 172px;
+            padding: 10px;
+            align-items: flex-start;
+            gap: 10px;
+            border-radius: 10px;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.13) 0%, rgba(123, 121, 121, 0.25) 100%);
+            box-shadow: -4px 6px 9.8px 0px rgba(108, 104, 104, 0.25);
+            backdrop-filter: blur(50px);
+            transition: transform 0.4s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+        }
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+        .card-hl {
+            display: flex;
+            width: 214px;
+            padding: 10px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            flex-shrink: 0;
+            align-self: stretch;
+        }
+        .card-hl h2{
+            flex: 1 0 0;
+            color: #000;
+            font-family: Inter;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%; /* 13px */
+            letter-spacing: 1.56px;
+        }
+        .readmore-cta {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            align-self: stretch;
+        }
+        .readmore-button {
+            display: flex;
+            padding: 2.5px 7.5px;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            text-decoration: none;
+        }
+        .readmore-button:hover {
+            -webkit-animation: color-change-2x 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite alternate-reverse both;
+	        animation: color-change-2x 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite alternate-reverse both;
+        }
+        @-webkit-keyframes color-change-2x {
+            0% {
+                background: #CFFF11;
+            }
+            100% {
+                background: #F4BA41;
+            }
+        }
+        @keyframes color-change-2x {
+            0% {
+                background: #CFFF11;
+            }
+            100% {
+                background: #F4BA41;
+            }
+        }
+        .readmore-button h3{
+            color: #000;
+            font-family: Inter;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%; /* 13px */
+            letter-spacing: 1.56px;
+        }
+        .orang {
+            display: flex;
+            padding: 0px 1px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex: 1 0 0;
+            align-self: stretch;
+        }
+        .orang-1 {
+            width: 82px;
+            height: 83px;
+        }
+        .orang-2 {
+            width: 100px;
+            height: 83px;
+        }
+        .orang-3 {
+            width: 82px;
+            height: 83px;
+        }
+        .orang-4 {
+            height: 83px;
+            flex: 1 0 0;
+        }
+        .orang-5 {
+            height: 83px;
+            flex: 1 0 0;
+        }
+
+
+        /* Footer section */
+        @font-face {
+            font-family: 'Kanit';
+            src: url('fonts/kanit/Kanit-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 50px;
+            background-color: #000;
+            color: #fff;
+            width: 95.4%;
+            margin-bottom: 0;
+        }
+        .footer-column1 {
+            font-family: 'Kanit';
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 420px;
+        }
+        .footer-column1 h2 {
+            font-size: 24px;
+            margin: 5px 0;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .footer-column1 p {
+            font-size: 16px;
+            margin: 5px 0;
+            margin-bottom: 10px;
+        }
+        .footer-column2 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-left: 30px;
+            width: 170px;
+        }
+        .footer-column3 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 80px;
+        }
+        .footer-column4 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-right: 75px;
+        }
+        .email, .highlight{
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .igdanwa
+        {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="brand">
+            <img alt="Brand logo" src="Logo Jauhar Skincare 1.png"/>
+            <div>
+                <h1>Jauhar</h1>
+                <p>Skincare</p>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text"/>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <i class="fas fa-shopping-cart" onclick="toggleMenu('side-menu2', 'menu-open2')"></i>
+            <i class="fas fa-bars" onclick="toggleMenu('side-menu', 'menu-open')"></i>
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <a class="menu-item" href="product.html">
+            Product
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="blog.html">
+            Blog
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="testimoni.html">
+            Review
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="#">
+            About Us
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="logo">
+            <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+        </div>
+        <div class="brand-name">Jauhar Skincare</div>
+    </div>
+        <!-- Side Menu 2 -->
+    <div class="side-menu2" id="side-menu2">
+        <a class="menu-item2" href="product.html">
+            Tokopedia
+            <img class="tokped" src="tokped.png" alt="Tokopedia Icon">
+        </a>
+        <a class="menu-item2" href="blog.html">
+            Shopee
+            <img class="sopi" src="sopi.png" alt="Shopee Icon">
+        </a>
+        <div class="logo">
+          <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+        </div>
+        <div class="brand-name2">Jauhar Skincare</div>
+    </div>
+        <!-- Content section -->
+    <div class="content">
+        <div class="text" id="discoverr">
+            <h1>Discover our</h1>
+              <h1>blog</h1>
+              <p>Read the articles below</p>
+          </div>
+         <div class="image" id="kartun"></div>
+    </div>   
+        
+    <!-- Recently added -->
+    <h3 class="recently-added">Recently Added</h3>
+        <!-- Main content -->
+    <div class="main-contentt">
+        <div class="blog-highlight">
+            <div class="contentt">
+                <h1>
+                    5 Essential Skincare Steps You Need to Know
+                </h1>
+                <p>
+                    When it comes to achieving a glowing and bright complexion, following the right skincare routine can make all the difference. Whether you’re a beginner or a seasoned skincare enthusiast, understanding and incorporating these five essential steps into your routine will ensure that your skin remains healthy, hydrated, and radiant. Here’s a simple guide by Jauhar Skincare to help you on your journey to beautiful skin!
+                </p>
+                <a class="read-more" href="isiblog1.html">
+                Read More...
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Search barr -->
+    <div class="search-barr ealah">
+        <label for="search-input" class="search-label">
+            <i class="fas fa-search"></i>
+            <input placeholder="Keyword" type="text"/>
+        </label>
+    </div>
+    <!-- card-wrap -->
+    <div class="card-wrap">
+        <div class="blog-card">
+            <div class="card-hl">
+                <h2>5 Essential Skincare Steps You Need to Know</h2>
+                <div class="readmore-cta">
+                    <a class="readmore-button" href="isiblog1.html">
+                        <h3>Read More</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <rect x="0.5" y="0.496704" width="24" height="24" rx="12" fill="url(#paint0_linear_374_324)" fill-opacity="0.44"/>
+                            <path d="M18.4199 7.1167C18.3185 6.87235 18.1243 6.67818 17.8799 6.5767C17.7597 6.52546 17.6306 6.49828 17.4999 6.4967H7.49994C7.23472 6.4967 6.98037 6.60206 6.79283 6.7896C6.6053 6.97713 6.49994 7.23149 6.49994 7.4967C6.49994 7.76192 6.6053 8.01627 6.79283 8.20381C6.98037 8.39135 7.23472 8.4967 7.49994 8.4967H15.0899L6.78994 16.7867C6.69621 16.8797 6.62182 16.9903 6.57105 17.1121C6.52028 17.234 6.49414 17.3647 6.49414 17.4967C6.49414 17.6287 6.52028 17.7594 6.57105 17.8813C6.62182 18.0031 6.69621 18.1137 6.78994 18.2067C6.8829 18.3004 6.9935 18.3748 7.11536 18.4256C7.23722 18.4764 7.36793 18.5025 7.49994 18.5025C7.63195 18.5025 7.76266 18.4764 7.88452 18.4256C8.00638 18.3748 8.11698 18.3004 8.20994 18.2067L16.4999 9.9067V17.4967C16.4999 17.7619 16.6053 18.0163 16.7928 18.2038C16.9804 18.3913 17.2347 18.4967 17.4999 18.4967C17.7652 18.4967 18.0195 18.3913 18.207 18.2038C18.3946 18.0163 18.4999 17.7619 18.4999 17.4967V7.4967C18.4984 7.36603 18.4712 7.23693 18.4199 7.1167Z" fill="black"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_374_324" x1="12.5" y1="0.496704" x2="12.5" y2="24.4967" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFC700"/>
+                                <stop offset="1" stop-color="#B4B0B0" stop-opacity="0.25"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>                        
+                    </a>
+                </div>
+            </div>
+            <div class="orang">
+                <img src="orang-1.png" alt="ilustrasi 1" class="orang-1">
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="card-hl">
+                <h2>Top 5 Skincare Mistakes Men Make and How to Improve Skin Health</h2>
+                <div class="readmore-cta">
+                    <a class="readmore-button" href="isiblog2.html">
+                        <h3>Read More</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <rect x="0.5" y="0.496704" width="24" height="24" rx="12" fill="url(#paint0_linear_374_324)" fill-opacity="0.44"/>
+                            <path d="M18.4199 7.1167C18.3185 6.87235 18.1243 6.67818 17.8799 6.5767C17.7597 6.52546 17.6306 6.49828 17.4999 6.4967H7.49994C7.23472 6.4967 6.98037 6.60206 6.79283 6.7896C6.6053 6.97713 6.49994 7.23149 6.49994 7.4967C6.49994 7.76192 6.6053 8.01627 6.79283 8.20381C6.98037 8.39135 7.23472 8.4967 7.49994 8.4967H15.0899L6.78994 16.7867C6.69621 16.8797 6.62182 16.9903 6.57105 17.1121C6.52028 17.234 6.49414 17.3647 6.49414 17.4967C6.49414 17.6287 6.52028 17.7594 6.57105 17.8813C6.62182 18.0031 6.69621 18.1137 6.78994 18.2067C6.8829 18.3004 6.9935 18.3748 7.11536 18.4256C7.23722 18.4764 7.36793 18.5025 7.49994 18.5025C7.63195 18.5025 7.76266 18.4764 7.88452 18.4256C8.00638 18.3748 8.11698 18.3004 8.20994 18.2067L16.4999 9.9067V17.4967C16.4999 17.7619 16.6053 18.0163 16.7928 18.2038C16.9804 18.3913 17.2347 18.4967 17.4999 18.4967C17.7652 18.4967 18.0195 18.3913 18.207 18.2038C18.3946 18.0163 18.4999 17.7619 18.4999 17.4967V7.4967C18.4984 7.36603 18.4712 7.23693 18.4199 7.1167Z" fill="black"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_374_324" x1="12.5" y1="0.496704" x2="12.5" y2="24.4967" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFC700"/>
+                                <stop offset="1" stop-color="#B4B0B0" stop-opacity="0.25"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>                        
+                    </a>
+                </div>
+            </div>
+            <div class="orang">
+                <img src="orang-2.png" alt="ilustrasi 1" class="orang-2">
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="card-hl">
+                <h2>How to Choose Skincare Products Based on Your Skin Type</h2>
+                <div class="readmore-cta">
+                    <a class="readmore-button" href="isiblog3.html">
+                        <h3>Read More</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <rect x="0.5" y="0.496704" width="24" height="24" rx="12" fill="url(#paint0_linear_374_324)" fill-opacity="0.44"/>
+                            <path d="M18.4199 7.1167C18.3185 6.87235 18.1243 6.67818 17.8799 6.5767C17.7597 6.52546 17.6306 6.49828 17.4999 6.4967H7.49994C7.23472 6.4967 6.98037 6.60206 6.79283 6.7896C6.6053 6.97713 6.49994 7.23149 6.49994 7.4967C6.49994 7.76192 6.6053 8.01627 6.79283 8.20381C6.98037 8.39135 7.23472 8.4967 7.49994 8.4967H15.0899L6.78994 16.7867C6.69621 16.8797 6.62182 16.9903 6.57105 17.1121C6.52028 17.234 6.49414 17.3647 6.49414 17.4967C6.49414 17.6287 6.52028 17.7594 6.57105 17.8813C6.62182 18.0031 6.69621 18.1137 6.78994 18.2067C6.8829 18.3004 6.9935 18.3748 7.11536 18.4256C7.23722 18.4764 7.36793 18.5025 7.49994 18.5025C7.63195 18.5025 7.76266 18.4764 7.88452 18.4256C8.00638 18.3748 8.11698 18.3004 8.20994 18.2067L16.4999 9.9067V17.4967C16.4999 17.7619 16.6053 18.0163 16.7928 18.2038C16.9804 18.3913 17.2347 18.4967 17.4999 18.4967C17.7652 18.4967 18.0195 18.3913 18.207 18.2038C18.3946 18.0163 18.4999 17.7619 18.4999 17.4967V7.4967C18.4984 7.36603 18.4712 7.23693 18.4199 7.1167Z" fill="black"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_374_324" x1="12.5" y1="0.496704" x2="12.5" y2="24.4967" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFC700"/>
+                                <stop offset="1" stop-color="#B4B0B0" stop-opacity="0.25"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>                        
+                    </a>
+                </div>
+            </div>
+            <div class="orang">
+                <img src="orang-3.png" alt="ilustrasi 1" class="orang-3">
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="card-hl">
+                <h2>Tricks to Tackle Common Skin Issues: Acne, Dark Spots, and Wrinkles</h2>
+                <div class="readmore-cta">
+                    <a class="readmore-button" href="isiblog4.html">
+                        <h3>Read More</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <rect x="0.5" y="0.496704" width="24" height="24" rx="12" fill="url(#paint0_linear_374_324)" fill-opacity="0.44"/>
+                            <path d="M18.4199 7.1167C18.3185 6.87235 18.1243 6.67818 17.8799 6.5767C17.7597 6.52546 17.6306 6.49828 17.4999 6.4967H7.49994C7.23472 6.4967 6.98037 6.60206 6.79283 6.7896C6.6053 6.97713 6.49994 7.23149 6.49994 7.4967C6.49994 7.76192 6.6053 8.01627 6.79283 8.20381C6.98037 8.39135 7.23472 8.4967 7.49994 8.4967H15.0899L6.78994 16.7867C6.69621 16.8797 6.62182 16.9903 6.57105 17.1121C6.52028 17.234 6.49414 17.3647 6.49414 17.4967C6.49414 17.6287 6.52028 17.7594 6.57105 17.8813C6.62182 18.0031 6.69621 18.1137 6.78994 18.2067C6.8829 18.3004 6.9935 18.3748 7.11536 18.4256C7.23722 18.4764 7.36793 18.5025 7.49994 18.5025C7.63195 18.5025 7.76266 18.4764 7.88452 18.4256C8.00638 18.3748 8.11698 18.3004 8.20994 18.2067L16.4999 9.9067V17.4967C16.4999 17.7619 16.6053 18.0163 16.7928 18.2038C16.9804 18.3913 17.2347 18.4967 17.4999 18.4967C17.7652 18.4967 18.0195 18.3913 18.207 18.2038C18.3946 18.0163 18.4999 17.7619 18.4999 17.4967V7.4967C18.4984 7.36603 18.4712 7.23693 18.4199 7.1167Z" fill="black"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_374_324" x1="12.5" y1="0.496704" x2="12.5" y2="24.4967" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFC700"/>
+                                <stop offset="1" stop-color="#B4B0B0" stop-opacity="0.25"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>                        
+                    </a>
+                </div>
+            </div>
+            <div class="orang">
+                <img src="orang-4.png" alt="ilustrasi 1" class="orang-4">
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="card-hl">
+                <h2>Effective Night Skincare Routine Guide for Healthy Skin</h2>
+                <div class="readmore-cta">
+                    <a class="readmore-button" href="isiblog5.html">
+                        <h3>Read More</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <rect x="0.5" y="0.496704" width="24" height="24" rx="12" fill="url(#paint0_linear_374_324)" fill-opacity="0.44"/>
+                            <path d="M18.4199 7.1167C18.3185 6.87235 18.1243 6.67818 17.8799 6.5767C17.7597 6.52546 17.6306 6.49828 17.4999 6.4967H7.49994C7.23472 6.4967 6.98037 6.60206 6.79283 6.7896C6.6053 6.97713 6.49994 7.23149 6.49994 7.4967C6.49994 7.76192 6.6053 8.01627 6.79283 8.20381C6.98037 8.39135 7.23472 8.4967 7.49994 8.4967H15.0899L6.78994 16.7867C6.69621 16.8797 6.62182 16.9903 6.57105 17.1121C6.52028 17.234 6.49414 17.3647 6.49414 17.4967C6.49414 17.6287 6.52028 17.7594 6.57105 17.8813C6.62182 18.0031 6.69621 18.1137 6.78994 18.2067C6.8829 18.3004 6.9935 18.3748 7.11536 18.4256C7.23722 18.4764 7.36793 18.5025 7.49994 18.5025C7.63195 18.5025 7.76266 18.4764 7.88452 18.4256C8.00638 18.3748 8.11698 18.3004 8.20994 18.2067L16.4999 9.9067V17.4967C16.4999 17.7619 16.6053 18.0163 16.7928 18.2038C16.9804 18.3913 17.2347 18.4967 17.4999 18.4967C17.7652 18.4967 18.0195 18.3913 18.207 18.2038C18.3946 18.0163 18.4999 17.7619 18.4999 17.4967V7.4967C18.4984 7.36603 18.4712 7.23693 18.4199 7.1167Z" fill="black"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_374_324" x1="12.5" y1="0.496704" x2="12.5" y2="24.4967" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFC700"/>
+                                <stop offset="1" stop-color="#B4B0B0" stop-opacity="0.25"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>                        
+                    </a>
+                </div>
+            </div>
+            <div class="orang">
+                <img src="orang-5.png" alt="ilustrasi 1" class="orang-5">
+            </div>
+        </div>
+    </div>                                  
+    <!-- Footer section -->
+    <div class="footer-container">
+        <div class="footer-column1">
+            <h2>We would love to hear from you.</h2>
+            <p>You can drop us a line via email</p>
+            <p><a class="email" href="mailto:jauharskincare@gmail" target="_blank">jauharskincare@gmail.com</a></p>
+        </div>
+        <div class="footer-column2">
+            <p class="highlight">Our address</p>
+            <p>Ketintang Wiyata Street</p>
+            <p>Wonokromo District</p>
+            <p>Surabaya City</p>
+            <p>East Java</p>
+            <p>Indonesia</p>
+        </div>
+        <div class="footer-column3">
+            <p>Home</p>
+            <p>Product</p>
+            <p>Blog</p>
+            <p>Testimoni</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="footer-column4">
+            <p class="highlight">Follow Us</p>
+            <p><a class="igdanwa" href="http://www.instagram.com/jauhar.skincare" target="_blank">Instagram</a></p>
+            <p><a class="igdanwa" href="https://wa.me/6285775754717" target="_blank">WhatsApp</a></p>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>  
+        function toggleMenu(menuId, menuClass) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuToToggle = document.getElementById(menuId);  
+    
+            // Cek apakah menu yang ingin dibuka sudah terbuka  
+            const isMenuOpen = menuToToggle.classList.contains(menuClass);  
+    
+            // Tutup semua menu terlebih dahulu  
+            menu1.classList.remove('menu-open');  
+            menu2.classList.remove('menu-open2');  
+    
+            // Jika menu yang diklik tidak terbuka, buka menu tersebut  
+            if (!isMenuOpen) {  
+                menuToToggle.classList.add(menuClass);  
+            }  
+        }  
+    
+        // Close menu when clicking outside  
+        document.addEventListener('click', function(event) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menuButton1 = document.querySelector('.navbar .nav-links i.fas.fa-bars');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuButton2 = document.querySelector('.navbar .nav-links i.fas.fa-shopping-cart');  
+    
+            if (!menu1.contains(event.target) && event.target !== menuButton1 && !menuButton1.contains(event.target)) {  
+                menu1.classList.remove('menu-open');  
+            }  
+            if (!menu2.contains(event.target) && event.target !== menuButton2 && !menuButton2.contains(event.target)) {  
+                menu2.classList.remove('menu-open2');  
+            }  
+        });  
+        document.addEventListener("DOMContentLoaded", function () {
+        const discoverr = document.getElementById("discoverr");
+
+        // Interaction 1: Entrance
+        discoverr.classList.add("slide-right1");
+
+        // Interaction 2: Scroll-Y-Down
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 500) { // Sesuaikan jarak scroll sesuai kebutuhan
+            discoverr.classList.remove("slide-right1");
+            discoverr.classList.add("slide-left1");
+            } else {
+            discoverr.classList.remove("slide-left1");
+            discoverr.classList.add("slide-right1");
+            }
+        });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+        const kartun = document.getElementById("kartun");
+
+        // Interaction 1: Entrance
+        kartun.classList.add("fade-in");
+
+        // Interaction 2: Scroll-Y-Down
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 500) { // Sesuaikan jarak scroll sesuai kebutuhan
+            kartun.classList.remove("fade-in");
+            kartun.classList.add("fade-out");
+            } else {
+            kartun.classList.remove("fade-out");
+            kartun.classList.add("fade-in");
+            }
+        });
+        });
+
+    </script>
+</body>
+</html>
